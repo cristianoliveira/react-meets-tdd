@@ -2,15 +2,17 @@
   "name": "examples",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "start": "webpack-dev-server --progress --colors --config ./webpack.config.js",
+    "backend": "json-server --watch db.json --port 8082",
     "test": "jest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "json-server": "^0.12.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   },
