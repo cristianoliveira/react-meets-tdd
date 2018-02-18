@@ -1,0 +1,136 @@
+pre {
+  box-shadow: none !important;
+}
+
+#what-to-test img {
+  width: 90%;
+}
+
+#testable-code canvas {
+  width: 100%;
+}
+
+#demo a {
+  font-size: 22px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.web-ui-browsers > .fragment {
+  margin: 10px;
+}
+
+.web-ui-browsers img {
+  float: left;
+  width: 200px;
+  height: 200px;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-column {
+  flex-grow: 1;
+}
+
+.small-code {
+  font-size: 10px;
+}
+
+#pre-star-wars h5 {
+  font-size: 30px;
+  font-family: 'ITC Serif Gothic', sans-serif;
+  color: rgb(75, 213, 238);
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.fade {
+  position: relative;
+  width: 100%;
+  min-height: 60vh;
+  top: -25px;
+  background-image: linear-gradient(0deg, transparent, black 75%);
+  z-index: 1;
+}
+
+.star-wars {
+  top: -20px !important;
+  background: #000;
+  background-image:
+    radial-gradient(white, rgba(255,255,255,0.5) 1px, transparent 3px),
+    radial-gradient(white, rgba(255,255,255,.1) 1px, transparent 14px),
+    radial-gradient(white, rgba(255,255,255,.1) 1px, transparent 15px),
+    radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 7px);
+  background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+  background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 800px;
+  color: #feda4a;
+  font-family: 'Pathway Gothic One', sans-serif;
+  font-size: 500%;
+  font-weight: 600;
+  letter-spacing: 6px;
+  line-height: 150%;
+  perspective: 400px;
+  text-align: justify;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.crawl {
+  visibility: visible;
+  position: relative;
+  top: 99999px;
+  transform-origin: 50% 100%;
+  animation: crawl 180s linear;
+}
+
+.crawl > .title {
+  font-size: 90%;
+  text-align: center;
+}
+
+.crawl > .title h1 {
+  margin: 0 0 100px;
+  text-transform: uppercase;
+}
+
+@keyframes crawl {
+    0% {
+    top: 400px;
+    transform: rotateX(20deg)  translateZ(0);
+  }
+    100% {
+    top: -6000px;
+    transform: rotateX(25deg) translateZ(-2500px);
+  }
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.reference {
+  font-size: 14px !important;
+}
+
+.small-list li {
+  font-size: 44px;
+}

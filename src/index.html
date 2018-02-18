@@ -1,0 +1,413 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Jest + TDD</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/solarized-dark.css">
+		<link rel="stylesheet" href="css/custom.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+        <section id="welcome">
+					<h2>When React meets TDD</h2>
+          <pre>
+            <code class="javascript">import Sanity, { BetterCode } from 'ui-unit-tests'</code>
+          </pre>
+					<p>
+						<small>Created by <a href="http://">Cristian Oliveira</a></small>
+					</p>
+
+        </section>
+
+        <section id="agenda">
+					<h2>What is this about?</h2>
+          <ul>
+            <li>Present about testing background.</li>
+            <li>Testing in UI.</li>
+            <li>TDD and React.</li>
+            <li>Some good practices.</li>
+            <li>Dojo: Let's create a small blog using TDD.</li>
+          </ul>
+        </section>
+
+        <section id="pre-star-wars">
+          <h5>A long time ago in a place far, far away....</h5>
+        </section>
+
+        <section>
+          <section class="star-wars">
+            <div id="the-history">
+              <audio id="audio-theme" class="hidden" controls>
+  <source src="./star_wars_theme.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+              <div class="title">
+                <p>Episode IV</p>
+                <h1>The old empire</h1>
+              </div>
+
+              <p>Before the Agile culture...</p>
+              <p>Companies relied in only manual testing for ensuring their product quality.<br />
+              This culture led to different type of problems:<br /><br />
+              </p>
+              <ol>
+                <li>Eternal fighting among Devs and QAs.</li>
+                <li>No confidence for changing before releases.</li>
+                <li>Fear of regression bugs in each change.</li>
+                <li>Legacy code that "just works".</li>
+                <li>Stress.</li>
+                <li>A lot of money losing.</li>
+              </ol>
+            </div>
+          </section>
+
+        </section>
+
+        <section id="history-past">
+          <h2>The software development</h2>
+          <p>For many reasons it was not so easy in the past.</p>
+        </section>
+
+        <section id="coding-was-like" data-background-transition="zoom" data-transition="slide" data-background="#b5533c">
+          <h2>Coding in a nutshell was like</h2>
+          <div>
+            <img src="./images/regression.gif" alt="" />
+          </div>
+        </section>
+
+        <section id="automated-testing">
+          <h3>Automated testing</h3>
+          <ul class="small-list">
+            <li>Unit Tests <span class="fragment">  👀</span></li>
+            <li>Integration Tests</li>
+            <li>Smoke Tests</li>
+          </ul>
+          <div>
+            <img src="./images/test-pyramid.png" alt=""/>
+            <small class="reference">source: https://martinfowler.com/bliki/TestPyramid.html</small>
+          </div>
+        </section>
+
+        <section id="question-unit-test">
+          <h3>But...Unit tests for UI?</h3>🤔
+          <div class="fragment">
+            <img src="./images/pros_cons_time.gif" alt="" />
+          </div>
+        </section>
+
+        <section id="unit-test-pros" data-background="#4d7e65">
+          <h2>Unit testing UI</h2>
+          <h4>Pros</h4>
+          <ol>
+            <li class="fragment">Great confidence for changing stuff (refactoring).</li>
+            <li class="fragment">Catch regressions.</li>
+            <li class="fragment">Better code design.</li>
+            <li class="fragment">Live component/module documentation.</li>
+            <li class="fragment">It makes easier to review code changes.</li>
+            <li class="fragment">Fast response loop.</li>
+            <li class="fragment">It's satisfaying see all things green.</li>
+          </ol>
+        </section>
+
+        <section id="unit-test-cons" data-background="#b5533c">
+          <h2>Unit testing UI</h2>
+          <h3>Cons</h3>
+          <div class="fragment">
+            <ol>
+              <li>We need to write and maintain them.</li>
+              <li class="hidden"></li>
+              <li class="hidden"></li>
+              <li class="hidden"></li>
+              <li class="hidden"></li>
+            </ol>
+            <h4>That's it.</h4>
+          </div>
+        </section>
+
+				<section id="before-ui-testing">
+          <h2>Some time ago</h2>
+          <small>Writting tests for UI were kind of 💩</small>
+          <div class="web-ui-browsers">
+            <div class="fragment">
+              <img src="./images/selenium.png" alt="" />
+            </div>
+            <div class="fragment">
+              <img src="./images/phantomjs.png" alt="" />
+            </div>
+          </div>
+            <div class="fragment">
+              <img src="./images/Barney-Stinson-No.gif" alt="" />
+            </div>
+        </section>
+
+				<section id="react-for-the-win">
+          <section>
+            <h2>React for the win</h2>
+            <small>Due react dom abstraction it's now easier to write unit tests</small>
+
+            <div class="fragment">
+              <h2>+Enzyme</h2>
+              <small>Abstraction for react test utils 😀</small>
+            </div>
+          </section>
+          <section>
+            <h2>How did they make that easy?</h2>
+              <h4>Enzyme renderers</h4>
+              <p>
+                <pre>
+                  <code class="jsx">
+const component = shallow(< Component />);
+                  </code>
+<small>
+  For reall unit testing. It doesn't render the component's children.
+</small>
+                </pre>
+              <pre>
+                  <code class="jsx">
+const component = mount(< Component />);
+                  </code>
+<small>
+  For Full DOM rendering. It is ideal for use cases where you have components
+  that may interact with DOM apis, or may require the full lifecycle.
+</small>
+              </pre>
+              </p>
+          </section>
+        </section>
+
+        <section id="testable-code" data-transition="slide" data-background-transition="fade">
+          <section>
+            <h3>Nice! We have those cool tools but...</h3>
+            <div class="fragment">
+              <h5>why is it still so hard??</h5>
+            </div>
+          </section>
+          <section>
+            <h4>Good code design is simple they said.</h4>
+            <div class="fragment">
+              <img src="./images/wordcloud_code.png" alt=""/>
+            </div>
+          </section>
+          <section>
+            <small style="transform: rotate(-15deg); color: red;">Javascript version</small>
+            <h4>Good code design is simple they said.</h4>
+            <div>
+              <img src="./images/wordcloud_javascript.png" alt=""/>
+            </div>
+          </section>
+          <section>
+            <h4>Bad design is hard to test</h4>
+            <pre>
+              <code>
+export function greeting(content, name, location, age) {
+    let today = new Date();
+    let year = today.getFullYear();
+    content += location === 'es' ? '!Hola' : 'Hello';
+    content += ' ' + name.toUpperCase() + '! ';
+    content += ' This year of ' + year + ' ';
+    content += 'you are ' + age + ' years old.';
+    return content;
+}
+
+//USAGE: greeting('Greeting: ', 'Fulano', 'es', '22');
+              </code>
+            </pre>
+          </section>
+          <section data-background="#cb2431">
+            <h4>The test</h4>
+            <pre>
+              <code class="javascript">
+it("won't work, good luck", function() {
+  let result = greeting('Greeting: ', 'Fulano', 'es', '27');
+  expect(result).toEqual('???');
+})
+              </code>
+            </pre>
+          </section>
+          <section data-background="#cb2431">
+            <div>
+              <img src="./images/hard_to_test.png" alt=""/>
+            </div>
+          </section>
+          <section data-background="#cb2431">
+            <h4>Nailed it!</h4>
+            <pre>
+              <code class="javascript">
+//Before each
+const DATE_TO_USE = new Date('2016');
+const _Date = Date;
+global.Date = jest.fn(() => DATE_TO_USE);
+global.Date.UTC = _Date.UTC;
+global.Date.parse = _Date.parse;
+global.Date.now = _Date.now;
+
+it("shouldn't be that complicated to test", function() {
+  let result = greeting('Greeting: ', 'Fulano', 'es', '22');
+  expect(result).toEqual('???');
+})
+              </code>
+            </pre>
+          </section>
+          <section data-background="#4A5FF3">
+            <h4>
+              Test Driven Development <br />
+              <span style="color: #ccc">leads toward a test driven design.</span>
+            </h4>
+          </section>
+          <section data-background="#4A5FF3">
+            <h4>
+              TDD and UI testing is awesome.
+            </h4>
+          </section>
+        </section>
+
+				<section id="what-to-test">
+          <section>
+            <h2>I am sold. But what now?</h2>
+          </section>
+          <section>
+            <h2>What to test?</h2>
+          </section>
+          <section>
+            <h2>Logic</h2>
+            <div class="flex">
+              <div class="flex-column">
+                <img src="./images/posts.png" alt=""/>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h2>Logic</h2>
+            <div class="flex">
+              <div class="flex-column">
+                <img src="./images/posts_logic_spoted.png" alt=""/>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h2>Logic testing</h2>
+            <div class="flex">
+              <div class="flex-column">
+                <img src="./images/posts_logic_testing.png" alt=""/>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h2>Interaction</h2>
+            <div class="flex">
+              <div class="flex-column">
+                <img src="./images/posts.png" alt=""/>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h2>Interaction</h2>
+            <div class="flex">
+              <div class="flex-column">
+                <img src="./images/posts_interactions_spoted.png" alt=""/>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h2>Interaction testing</h2>
+            <div class="flex">
+              <div class="flex-column">
+                <img src="./images/posts_interactions_testing.png" alt=""/>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h2>UI testing with snapshots</h2>
+            <div class="flex">
+              <div class="flex-column">
+                <img src="./images/posts_snapshots_testing.png" alt=""/>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h2>How does it work?</h2>
+            <div class="fragment flex">
+              <div class="flex-column">
+                <img src="./images/snapshot_result.png" alt=""/>
+              </div>
+            </div>
+          </section>
+        </section>
+        <section>
+          <h2>And this TDD. What the deal with it?</h2>
+        </section>
+        <section>
+          <h2>TDD makes the flow enjoyable. How?</h2>
+        </section>
+        <section>
+          <img width="500" src="./images/tdd-flow.png" alt=""/>
+        </section>
+        <section id="demo">
+          <h2>Let's try it?</h2>
+          <h5>clone the repo:</h5>
+          <a href="https://github.com/cristianoliveira/blog-react-tdd-workshop" target="_blank">https://github.com/cristianoliveira/blog-react-tdd-workshop</a>
+        </section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+
+			Reveal.initialize({
+        slideNumber: true,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: false, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+      Reveal.addEventListener( 'slidechanged', function( event ) {
+        const historySlide = document.getElementById('the-history');
+        const audioTheme = document.getElementById('audio-theme');
+
+        if (event.currentSlide.className === "star-wars present") {
+          audioTheme.play();
+          historySlide.classList.remove('hide');
+          historySlide.classList.add('crawl');
+
+          for (var i = 0; i < 100; i++) {
+            let vol = (100 - i) / 100;
+            setTimeout(() => {
+              let v = vol;
+              audioTheme.volume = v;
+            }, i * 500);
+
+            i++;
+          }
+        } else {
+          audioTheme.pause();
+          historySlide.classList.add('hide')
+          historySlide.classList.remove('crawl')
+        }
+      });
+		</script>
+	</body>
+</html>

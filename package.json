@@ -1,0 +1,24 @@
+{
+  "name": "jest-tdd-workshop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "light-server -s src/ -p 9000 -w 'src/index.html'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cristianoliveira/jest-tdd-workshop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cristianoliveira/jest-tdd-workshop/issues"
+  },
+  "homepage": "https://github.com/cristianoliveira/jest-tdd-workshop#readme",
+  "dependencies": {
+    "light-server": "^2.4.0",
+    "reveal": "0.0.4"
+  }
+}

@@ -1,0 +1,61 @@
+100	SOLID
+55	Composition
+43	Decoupled
+43	Liskov
+33	Abstraction
+33	Side effect
+33	Predictable
+33	Small
+27	Tight Focused
+24	Function
+21	Class
+18	Interface
+18	State
+17	Stateless
+17	Type
+8	Constants
+8	Good Naming
+8	Simplicity
+8	Review
+8	Smell
+8	Code
+
+100	SOLID
+55	Composition
+50	DOM
+43	Decoupled
+43	Liskov
+43	Javascript
+33	Abstraction
+33	Side effect
+33	Unpredictable
+33	Small
+27	Tight Focused
+24	Function
+21	Class
+18	Interface
+18	Duck Typing
+18	Weak Typing
+18	Undefined is not a function
+18	FooBar
+18	State
+17	Stateless
+17	Type
+17	WebAssembly
+17	Functional
+17	Immutablejs
+10	React
+10	Redux
+10	Flux
+10	Typescript
+10	Babel
+10	Aurelia
+10	vue.js
+10	firebase
+10	firebase
+8	Log
+8	Good Naming
+8	Simplicity
+8	Review
+8	Smell
+8	Code
