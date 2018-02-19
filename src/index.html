@@ -1,43 +1,43 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Jest + TDD</title>
+    <title>Jest + TDD</title>
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/solarized-dark.css">
-		<link rel="stylesheet" href="css/custom.css">
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/solarized-dark.css">
+    <link rel="stylesheet" href="css/custom.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
         <section id="welcome">
-					<h2>When React meets TDD</h2>
+          <h2>When React meets TDD</h2>
           <pre>
             <code class="javascript">import Sanity, { BetterCode } from 'ui-unit-tests'</code>
           </pre>
-					<p>
-						<small>Created by <a href="http://">Cristian Oliveira</a></small>
-					</p>
+          <p>
+            <small>Created by <a href="http://">Cristian Oliveira</a></small>
+          </p>
 
         </section>
 
         <section id="agenda">
-					<h2>What is this about?</h2>
+          <h2>What is this about?</h2>
           <ul>
             <li>Present about testing background.</li>
             <li>Testing in UI.</li>
@@ -55,9 +55,9 @@
           <section class="star-wars">
             <div id="the-history">
               <audio id="audio-theme" class="hidden" controls>
-  <source src="./star_wars_theme.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
+                <source src="./star_wars_theme.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+              </audio>
               <div class="title">
                 <p>Episode IV</p>
                 <h1>The old empire</h1>
@@ -65,7 +65,7 @@
 
               <p>Before the Agile culture...</p>
               <p>Companies relied in only manual testing for ensuring their product quality.<br />
-              This culture led to different type of problems:<br /><br />
+                This culture led to different type of problems:<br /><br />
               </p>
               <ol>
                 <li>Eternal fighting among Devs and QAs.</li>
@@ -141,7 +141,7 @@
           </div>
         </section>
 
-				<section id="before-ui-testing">
+        <section id="before-ui-testing">
           <h2>Some time ago</h2>
           <small>Writting tests for UI were kind of 💩</small>
           <div class="web-ui-browsers">
@@ -152,12 +152,12 @@
               <img src="./images/phantomjs.png" alt="" />
             </div>
           </div>
-            <div class="fragment">
-              <img src="./images/Barney-Stinson-No.gif" alt="" />
-            </div>
+          <div class="fragment">
+            <img src="./images/Barney-Stinson-No.gif" alt="" />
+          </div>
         </section>
 
-				<section id="react-for-the-win">
+        <section id="react-for-the-win">
           <section>
             <h2>React for the win</h2>
             <small>Due react dom abstraction it's now easier to write unit tests</small>
@@ -169,9 +169,9 @@
           </section>
           <section>
             <h2>How did they make that easy?</h2>
-              <h4>Enzyme renderers</h4>
-              <p>
-                <pre>
+            <h4>Enzyme renderers</h4>
+            <p>
+              <pre>
                   <code class="jsx">
 const component = shallow(< Component />);
                   </code>
@@ -179,7 +179,7 @@ const component = shallow(< Component />);
   For reall unit testing. It doesn't render the component's children.
 </small>
                 </pre>
-              <pre>
+            <pre>
                   <code class="jsx">
 const component = mount(< Component />);
                   </code>
@@ -189,32 +189,32 @@ const component = mount(< Component />);
 </small>
               </pre>
               </p>
+            </section>
           </section>
-        </section>
 
-        <section id="testable-code" data-transition="slide" data-background-transition="fade">
-          <section>
-            <h3>Nice! We have those cool tools but...</h3>
-            <div class="fragment">
-              <h5>why is it still so hard??</h5>
-            </div>
-          </section>
-          <section>
-            <h4>Good code design is simple they said.</h4>
-            <div class="fragment">
-              <img src="./images/wordcloud_code.png" alt=""/>
-            </div>
-          </section>
-          <section>
-            <small style="transform: rotate(-15deg); color: red;">Javascript version</small>
-            <h4>Good code design is simple they said.</h4>
-            <div>
-              <img src="./images/wordcloud_javascript.png" alt=""/>
-            </div>
-          </section>
-          <section>
-            <h4>Bad design is hard to test</h4>
-            <pre>
+          <section id="testable-code" data-transition="slide" data-background-transition="fade">
+            <section>
+              <h3>Nice! We have those cool tools but...</h3>
+              <div class="fragment">
+                <h5>why is it still so hard??</h5>
+              </div>
+            </section>
+            <section>
+              <h4>Good code design is simple they said.</h4>
+              <div class="fragment">
+                <img src="./images/wordcloud_code.png" alt=""/>
+              </div>
+            </section>
+            <section>
+              <small style="transform: rotate(-15deg); color: red;">Javascript version</small>
+              <h4>Good code design is simple they said.</h4>
+              <div>
+                <img src="./images/wordcloud_javascript.png" alt=""/>
+              </div>
+            </section>
+            <section>
+              <h4>Bad design is hard to test</h4>
+              <pre>
               <code>
 export function greeting(content, name, location, age) {
     let today = new Date();
@@ -229,10 +229,10 @@ export function greeting(content, name, location, age) {
 //USAGE: greeting('Greeting: ', 'Fulano', 'es', '22');
               </code>
             </pre>
-          </section>
-          <section data-background="#cb2431">
-            <h4>The test</h4>
-            <pre>
+            </section>
+            <section data-background="#cb2431">
+              <h4>The test</h4>
+              <pre>
               <code class="javascript">
 it("won't work, good luck", function() {
   let result = greeting('Greeting: ', 'Fulano', 'es', '27');
@@ -240,15 +240,15 @@ it("won't work, good luck", function() {
 })
               </code>
             </pre>
-          </section>
-          <section data-background="#cb2431">
-            <div>
-              <img src="./images/hard_to_test.png" alt=""/>
-            </div>
-          </section>
-          <section data-background="#cb2431">
-            <h4>Nailed it!</h4>
-            <pre>
+            </section>
+            <section data-background="#cb2431">
+              <div>
+                <img src="./images/hard_to_test.png" alt=""/>
+              </div>
+            </section>
+            <section data-background="#cb2431">
+              <h4>Nailed it!</h4>
+              <pre>
               <code class="javascript">
 //Before each
 const DATE_TO_USE = new Date('2016');
@@ -264,150 +264,150 @@ it("shouldn't be that complicated to test", function() {
 })
               </code>
             </pre>
+            </section>
+            <section data-background="#4A5FF3">
+              <h4>
+                Test Driven Development <br />
+                <span style="color: #ccc">leads toward a test driven design.</span>
+              </h4>
+            </section>
+            <section data-background="#4A5FF3">
+              <h4>
+                TDD and UI testing is awesome.
+              </h4>
+            </section>
           </section>
-          <section data-background="#4A5FF3">
-            <h4>
-              Test Driven Development <br />
-              <span style="color: #ccc">leads toward a test driven design.</span>
-            </h4>
-          </section>
-          <section data-background="#4A5FF3">
-            <h4>
-              TDD and UI testing is awesome.
-            </h4>
-          </section>
-        </section>
 
-				<section id="what-to-test">
-          <section>
-            <h2>I am sold. But what now?</h2>
-          </section>
-          <section>
-            <h2>What to test?</h2>
-          </section>
-          <section>
-            <h2>Logic</h2>
-            <div class="flex">
-              <div class="flex-column">
-                <img src="./images/posts.png" alt=""/>
+          <section id="what-to-test">
+            <section>
+              <h2>I am sold. But what now?</h2>
+            </section>
+            <section>
+              <h2>What to test?</h2>
+            </section>
+            <section>
+              <h2>Logic</h2>
+              <div class="flex">
+                <div class="flex-column">
+                  <img src="./images/posts.png" alt=""/>
+                </div>
               </div>
-            </div>
+            </section>
+            <section>
+              <h2>Logic</h2>
+              <div class="flex">
+                <div class="flex-column">
+                  <img src="./images/posts_logic_spoted.png" alt=""/>
+                </div>
+              </div>
+            </section>
+            <section>
+              <h2>Logic testing</h2>
+              <div class="flex">
+                <div class="flex-column">
+                  <img src="./images/posts_logic_testing.png" alt=""/>
+                </div>
+              </div>
+            </section>
+            <section>
+              <h2>Interaction</h2>
+              <div class="flex">
+                <div class="flex-column">
+                  <img src="./images/posts.png" alt=""/>
+                </div>
+              </div>
+            </section>
+            <section>
+              <h2>Interaction</h2>
+              <div class="flex">
+                <div class="flex-column">
+                  <img src="./images/posts_interactions_spoted.png" alt=""/>
+                </div>
+              </div>
+            </section>
+            <section>
+              <h2>Interaction testing</h2>
+              <div class="flex">
+                <div class="flex-column">
+                  <img src="./images/posts_interactions_testing.png" alt=""/>
+                </div>
+              </div>
+            </section>
+            <section>
+              <h2>UI testing with snapshots</h2>
+              <div class="flex">
+                <div class="flex-column">
+                  <img src="./images/posts_snapshots_testing.png" alt=""/>
+                </div>
+              </div>
+            </section>
+            <section>
+              <h2>How does it work?</h2>
+              <div class="fragment flex">
+                <div class="flex-column">
+                  <img src="./images/snapshot_result.png" alt=""/>
+                </div>
+              </div>
+            </section>
           </section>
           <section>
-            <h2>Logic</h2>
-            <div class="flex">
-              <div class="flex-column">
-                <img src="./images/posts_logic_spoted.png" alt=""/>
-              </div>
-            </div>
+            <h2>And this TDD. What the deal with it?</h2>
           </section>
           <section>
-            <h2>Logic testing</h2>
-            <div class="flex">
-              <div class="flex-column">
-                <img src="./images/posts_logic_testing.png" alt=""/>
-              </div>
-            </div>
+            <h2>TDD makes the flow enjoyable. How?</h2>
           </section>
           <section>
-            <h2>Interaction</h2>
-            <div class="flex">
-              <div class="flex-column">
-                <img src="./images/posts.png" alt=""/>
-              </div>
-            </div>
+            <img width="500" src="./images/tdd-flow.png" alt=""/>
           </section>
-          <section>
-            <h2>Interaction</h2>
-            <div class="flex">
-              <div class="flex-column">
-                <img src="./images/posts_interactions_spoted.png" alt=""/>
-              </div>
-            </div>
+          <section id="demo">
+            <h2>Let's try it?</h2>
+            <h5>clone the repo:</h5>
+            <a href="https://github.com/cristianoliveira/blog-react-tdd-workshop" target="_blank">https://github.com/cristianoliveira/blog-react-tdd-workshop</a>
           </section>
-          <section>
-            <h2>Interaction testing</h2>
-            <div class="flex">
-              <div class="flex-column">
-                <img src="./images/posts_interactions_testing.png" alt=""/>
-              </div>
-            </div>
-          </section>
-          <section>
-            <h2>UI testing with snapshots</h2>
-            <div class="flex">
-              <div class="flex-column">
-                <img src="./images/posts_snapshots_testing.png" alt=""/>
-              </div>
-            </div>
-          </section>
-          <section>
-            <h2>How does it work?</h2>
-            <div class="fragment flex">
-              <div class="flex-column">
-                <img src="./images/snapshot_result.png" alt=""/>
-              </div>
-            </div>
-          </section>
-        </section>
-        <section>
-          <h2>And this TDD. What the deal with it?</h2>
-        </section>
-        <section>
-          <h2>TDD makes the flow enjoyable. How?</h2>
-        </section>
-        <section>
-          <img width="500" src="./images/tdd-flow.png" alt=""/>
-        </section>
-        <section id="demo">
-          <h2>Let's try it?</h2>
-          <h5>clone the repo:</h5>
-          <a href="https://github.com/cristianoliveira/blog-react-tdd-workshop" target="_blank">https://github.com/cristianoliveira/blog-react-tdd-workshop</a>
-        </section>
-			</div>
-		</div>
+        </div>
+      </div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+      <script src="lib/js/head.min.js"></script>
+      <script src="js/reveal.js"></script>
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
+      <script>
+        // More info about config & dependencies:
+// - https://github.com/hakimel/reveal.js#configuration
+// - https://github.com/hakimel/reveal.js#dependencies
 
-			Reveal.initialize({
-        slideNumber: true,
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: false, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
-      Reveal.addEventListener( 'slidechanged', function( event ) {
-        const historySlide = document.getElementById('the-history');
-        const audioTheme = document.getElementById('audio-theme');
+Reveal.initialize({
+  slideNumber: true,
+  dependencies: [
+    { src: 'plugin/markdown/marked.js' },
+    { src: 'plugin/markdown/markdown.js' },
+    { src: 'plugin/notes/notes.js', async: true },
+    { src: 'plugin/highlight/highlight.js', async: false, callback: function() { hljs.initHighlightingOnLoad(); } }
+  ]
+});
+Reveal.addEventListener( 'slidechanged', function( event ) {
+  const historySlide = document.getElementById('the-history');
+  const audioTheme = document.getElementById('audio-theme');
 
-        if (event.currentSlide.className === "star-wars present") {
-          audioTheme.play();
-          historySlide.classList.remove('hide');
-          historySlide.classList.add('crawl');
+  if (event.currentSlide.className === "star-wars present") {
+    audioTheme.play();
+    historySlide.classList.remove('hide');
+    historySlide.classList.add('crawl');
 
-          for (var i = 0; i < 100; i++) {
-            let vol = (100 - i) / 100;
-            setTimeout(() => {
-              let v = vol;
-              audioTheme.volume = v;
-            }, i * 500);
+    for (var i = 0; i < 100; i++) {
+      let vol = (100 - i) / 100;
+      setTimeout(() => {
+        let v = vol;
+        audioTheme.volume = v;
+      }, i * 500);
 
-            i++;
-          }
-        } else {
-          audioTheme.pause();
-          historySlide.classList.add('hide')
-          historySlide.classList.remove('crawl')
-        }
-      });
-		</script>
-	</body>
-</html>
+      i++;
+    }
+  } else {
+    audioTheme.pause();
+    historySlide.classList.add('hide')
+    historySlide.classList.remove('crawl')
+  }
+});
+      </script>
+    </body>
+  </html>
