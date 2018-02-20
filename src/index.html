@@ -28,26 +28,31 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
         <section id="welcome">
           <h2>When React meets TDD</h2>
           <pre>
-            <code class="javascript">import Sanity, { BetterCode } from 'ui-unit-tests'</code>
+            <code class="javascript">import Sanity, { BetterCode } from 'ui-unit-tests';</code>
           </pre>
           <p>
-            <small>Created by <a href="http://">Cristian Oliveira</a></small>
+            <small>By Cristian Oliveira</small>
+            <small>Github <a href="https://github.com/cristianoliveira">@cristianoliveira</a></small>
           </p>
-
         </section>
 
         <section id="agenda">
           <h2>What is this about?</h2>
           <ul>
-            <li>Present about testing background.</li>
-            <li>Testing in UI.</li>
+            <li>Automated testing background.</li>
+            <li>Unit testing.</li>
+            <li>Testing UI.</li>
             <li>TDD and React.</li>
             <li>Some good practices.</li>
-            <li>Dojo: Let's create a small blog using TDD.</li>
+            <li>Dojo: Let's code something using TDD.</li>
           </ul>
         </section>
 
-        <section id="pre-star-wars">
+        <section id="thinking">
+          <span>🤔</span>
+        </section>
+
+        <section id="pre-star-wars"  class="star-wars-font">
           <h5>A long time ago in a place far, far away....</h5>
         </section>
 
@@ -58,14 +63,14 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
                 <source src="./star_wars_theme.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
               </audio>
-              <div class="title">
-                <p>Episode IV</p>
+              <div class="title star-wars-font">
+                <p>Episode XX</p>
                 <h1>The old empire</h1>
               </div>
 
-              <p>Before the Agile culture...</p>
-              <p>Companies relied in only manual testing for ensuring their product quality.<br />
-                This culture led to different type of problems:<br /><br />
+              <p>It was in a time before the Agile culture era.</p>
+              <p>Companies relied in too much on manual testing for ensuring their product's quality.<br />
+                That culture led to different type of problems.<br /><br />
               </p>
               <ol>
                 <li>Eternal fighting among Devs and QAs.</li>
@@ -73,24 +78,29 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
                 <li>Fear of regression bugs in each change.</li>
                 <li>Legacy code that "just works".</li>
                 <li>Stress.</li>
-                <li>A lot of money losing.</li>
               </ol>
+              <p>People where not happy also a lot of money and time were wasted.... </p>
+              <img id="testing-inanutshell" width="500" src="./images/regression.gif" alt="" />
             </div>
           </section>
 
         </section>
 
+        <!-- TODO change this -->
         <section id="history-past">
-          <h2>The software development</h2>
-          <p>For many reasons it was not so easy in the past.</p>
+          <h2>The Agile culture</h2>
+          <p>Extreme Programming.</p>
+          <p>This culture of delivering fast.</p>
+          <p>Dynamically changing software requirements.</p>
+          <p>Fast product lifecycle.</p>
         </section>
 
-        <section id="coding-was-like" data-background-transition="zoom" data-transition="slide" data-background="#b5533c">
-          <h2>Coding in a nutshell was like</h2>
-          <div>
-            <img src="./images/regression.gif" alt="" />
-          </div>
-        </section>
+        <!-- <section id="coding-was-like" data-background-transition="zoom" data-transition="slide" data-background="#b5533c"> -->
+        <!--   <h2>Coding in a nutshell was like</h2> -->
+        <!--   <div> -->
+        <!--     <img src="./images/regression.gif" alt="" /> -->
+        <!--   </div> -->
+        <!-- </section> -->
 
         <section id="automated-testing">
           <h3>Automated testing</h3>
@@ -99,6 +109,10 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
             <li>Integration Tests</li>
             <li>Smoke Tests</li>
           </ul>
+        </section>
+
+        <section id="automated-testing-pyramid">
+          <h3>Automated testing</h3>
           <div>
             <img src="./images/test-pyramid.png" alt=""/>
             <small class="reference">source: https://martinfowler.com/bliki/TestPyramid.html</small>
@@ -216,17 +230,20 @@ const component = mount(< Component />);
               <h4>Bad design is hard to test</h4>
               <pre>
               <code>
-export function greeting(content, name, location, age) {
-    let today = new Date();
-    let year = today.getFullYear();
-    content += location === 'es' ? '!Hola' : 'Hello';
-    content += ' ' + name.toUpperCase() + '! ';
-    content += ' This year of ' + year + ' ';
-    content += 'you are ' + age + ' years old.';
-    return content;
-}
+function cityBirthday(content, city, year, month, day) {
+  let yearnumber = parseInt(year);
+  let birthday = new Date(year, month, day);
+  let today = new Date();
+  let year = today.getFullYear();
+  let age = year - birthday.getFullYear();
+  content += city.toUpperCase();
+  content += ' This year of ' + year + ' ';
+  content += 'the city is ' + age + ' years old.';
 
-//USAGE: greeting('Greeting: ', 'Fulano', 'es', '22');
+  setTimeout(() => console.log(content), 0);
+
+  return content;
+}
               </code>
             </pre>
             </section>
@@ -235,7 +252,7 @@ export function greeting(content, name, location, age) {
               <pre>
               <code class="javascript">
 it("won't work, good luck", function() {
-  let result = greeting('Greeting: ', 'Fulano', 'es', '27');
+  let result = cityBirthday('City: ', 'Foo', '2000', 05, 01);
   expect(result).toEqual('???');
 })
               </code>
@@ -259,7 +276,7 @@ global.Date.parse = _Date.parse;
 global.Date.now = _Date.now;
 
 it("shouldn't be that complicated to test", function() {
-  let result = greeting('Greeting: ', 'Fulano', 'es', '22');
+  let result = cityBirthday('City: ', 'Foo', '2000', 05, 01);
   expect(result).toEqual('???');
 })
               </code>
@@ -271,9 +288,9 @@ it("shouldn't be that complicated to test", function() {
                 <span style="color: #ccc">leads toward a test driven design.</span>
               </h4>
             </section>
-            <section data-background="#4A5FF3">
+            <section data-background="./images/sweet.gif">
               <h4>
-                TDD and UI testing is awesome.
+                TDD is
               </h4>
             </section>
           </section>
@@ -283,7 +300,9 @@ it("shouldn't be that complicated to test", function() {
               <h2>I am sold. But what now?</h2>
             </section>
             <section>
-              <h2>What to test?</h2>
+              <h2>How do we do it?</h2>
+              <h2>What do we test?</h2>
+              <h2>Best practices?</h2>
             </section>
             <section>
               <h2>Logic</h2>
@@ -307,6 +326,7 @@ it("shouldn't be that complicated to test", function() {
                 <div class="flex-column">
                   <img src="./images/posts_logic_testing.png" alt=""/>
                 </div>
+                <small>Given -> When -> Then Pattern</small>
               </div>
             </section>
             <section>
@@ -349,12 +369,45 @@ it("shouldn't be that complicated to test", function() {
                 </div>
               </div>
             </section>
+            <section id="testing-quick-recap">
+              <h2>Best practices: Quick recap</h2>
+              <ol>
+                <li>Test the logic and interactions.</li>
+                <li>Use the pattern Given, When and Then.</li>
+                <li>Good test name description.</li>
+                <li>Tests should be simple.</li>
+
+              <ul class="recap">
+                <li>Does your test name contains the words "and" and "or"? <span class="fragment">That's smell.</span></li>
+                <li>Are you mocking too much stuff? <span class="fragment">That's smell.</span></li>
+                <li>Is the test big/complex? <span class="fragment">That isn't just a smell. It is the 💩</span></li>
+              </ul>
+              </ol>
+            </section>
+          </section>
+          <section id="tdd-worthy">
+            <h2>TDD. Does it worthy?</h2>
+            <h2 class="fragment">What time is it?</h2>
+            <div class="fragment">
+              <img src="./images/pros_cons_time.gif" alt="" />
+            </div>
           </section>
           <section>
-            <h2>And this TDD. What the deal with it?</h2>
+            <h2>Pros</h2>
+            <ol>
+              <li>Reduce 40%-80% of bugs.</li>
+              <li>Makes better objects/functions API.</li>
+              <li>Leads to descritive tests.</li>
+              <li>Fast feedback loop.</li>
+            </ol>
           </section>
           <section>
-            <h2>TDD makes the flow enjoyable. How?</h2>
+            <h2>Cons</h2>
+            <ol>
+              <li>It's hard at the beggining.</li>
+              <li>You need to know well what you'll implement.</li>
+              <li>It takes extra time.</li>
+            </ol>
           </section>
           <section>
             <img width="500" src="./images/tdd-flow.png" alt=""/>
@@ -384,6 +437,29 @@ Reveal.initialize({
     { src: 'plugin/highlight/highlight.js', async: false, callback: function() { hljs.initHighlightingOnLoad(); } }
   ]
 });
+
+function OnceCall(fn) {
+  let called = false;
+  return (params) => {
+    !called && fn(params);
+    called = true
+  }
+}
+
+function lowVolume(audio) {
+  for (var i = 0; i < 100; i++) {
+    let vol = (100 - i) / 100;
+    setTimeout(() => {
+      let v = vol;
+      audio.volume = v;
+    }, i * 500);
+
+    i++;
+  }
+}
+
+const onceLowVolume = OnceCall(lowVolume);
+
 Reveal.addEventListener( 'slidechanged', function( event ) {
   const historySlide = document.getElementById('the-history');
   const audioTheme = document.getElementById('audio-theme');
@@ -393,15 +469,7 @@ Reveal.addEventListener( 'slidechanged', function( event ) {
     historySlide.classList.remove('hide');
     historySlide.classList.add('crawl');
 
-    for (var i = 0; i < 100; i++) {
-      let vol = (100 - i) / 100;
-      setTimeout(() => {
-        let v = vol;
-        audioTheme.volume = v;
-      }, i * 500);
-
-      i++;
-    }
+    onceLowVolume(audioTheme);
   } else {
     audioTheme.pause();
     historySlide.classList.add('hide')

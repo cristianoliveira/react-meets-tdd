@@ -1,3 +1,9 @@
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
 pre {
   box-shadow: none !important;
 }
@@ -42,15 +48,8 @@ pre {
 }
 
 #pre-star-wars h5 {
-  font-size: 30px;
-  font-family: 'ITC Serif Gothic', sans-serif;
+  text-transform: none;
   color: rgb(75, 213, 238);
-}
-
-body {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
 }
 
 .fade {
@@ -60,6 +59,18 @@ body {
   top: -25px;
   background-image: linear-gradient(0deg, transparent, black 75%);
   z-index: 1;
+}
+
+#testing-inanutshell {
+  margin-top: 600px;
+  width: 100%;
+}
+
+.star-wars-font h1, h5 {
+  font-family: 'Pathway Gothic One', sans-serif;
+  font-weight: 200;
+  font-family: 'ITC Serif Gothic', sans-serif;
+  color: #feda4a;
 }
 
 .star-wars {
@@ -95,7 +106,7 @@ body {
   position: relative;
   top: 99999px;
   transform-origin: 50% 100%;
-  animation: crawl 180s linear;
+  animation: crawl 210s linear;
 }
 
 .crawl > .title {
@@ -104,6 +115,7 @@ body {
 }
 
 .crawl > .title h1 {
+
   margin: 0 0 100px;
   text-transform: uppercase;
 }
@@ -133,4 +145,8 @@ body {
 
 .small-list li {
   font-size: 44px;
+}
+
+.recap span {
+  color: red;
 }
