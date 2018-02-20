@@ -1,4 +1,5 @@
 # jest-tdd-workshop
+
 When TDD meets React talk/workshop.
 
 ## Setup
@@ -10,3 +11,5 @@ npm i
 ```
 npm start
 ```
+
+Then you can access http://localhost:9000
