@@ -38,14 +38,14 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
         </section>
 
         <section id="agenda">
-          <h2>What is this about?</h2>
+          <h2>What is that about?</h2>
           <ul>
             <li>Automated testing background.</li>
             <li>Unit testing.</li>
-            <li>Testing UI.</li>
+            <li>UI Testing.</li>
             <li>TDD and React.</li>
-            <li>Some good practices.</li>
-            <li>Dojo: Let's code something using TDD.</li>
+            <li>Good practices.</li>
+            <li>Live code: Let's code something using TDD.</li>
           </ul>
         </section>
 
@@ -69,16 +69,16 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
                 <h1>The old empire</h1>
               </div>
 
-              <p>It was in a time before the Agile culture era.</p>
-              <p>Companies relied in too much on manual testing for ensuring their product's quality.<br />
-                That culture led to different type of problems.<br /><br />
+              <p>It was in a time before the Agile culture.</p>
+              <p>The product planning and deliverying were slow. Companies relied too much on manual testing for ensuring their product's quality.<br />
+                That culture led to different kind of problems.<br /><br />
               </p>
               <ol>
                 <li>Eternal fighting among Devs and QAs.</li>
                 <li>No confidence for changing before releases.</li>
                 <li>Fear of regression bugs in each change.</li>
                 <li>Legacy code that "just works".</li>
-                <li>Stress.</li>
+                <li>A lot of stress.</li>
               </ol>
               <p>People where not happy also a lot of money and time were wasted.... </p>
               <img id="testing-inanutshell" width="500" src="./images/regression.gif" alt="" />
@@ -113,11 +113,16 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
         </section>
 
         <section id="automated-testing-pyramid">
-          <h3>Automated testing</h3>
-          <div>
-            <img src="./images/test-pyramid.png" alt=""/>
-            <small class="reference">source: https://martinfowler.com/bliki/TestPyramid.html</small>
-          </div>
+          <section>
+            <h3>Automated testing</h3>
+            <div>
+              <img src="./images/test-pyramid.png" alt=""/>
+              <small class="reference">source: https://martinfowler.com/bliki/TestPyramid.html</small>
+            </div>
+          </section>
+          <section>
+            <img src="./images/no_integration_test.gif" alt=""/>
+          </section>
         </section>
 
         <section id="question-unit-test">
@@ -132,12 +137,11 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
           <h4>Pros</h4>
           <ol>
             <li class="fragment">Great confidence for changing stuff (refactoring).</li>
-            <li class="fragment">Catch regressions.</li>
-            <li class="fragment">Better code design.</li>
+            <li class="fragment">No more regressions.</li>
+            <li class="fragment">Better component/code design.</li>
             <li class="fragment">Live component/module documentation.</li>
             <li class="fragment">It makes easier to review code changes.</li>
-            <li class="fragment">Fast response loop.</li>
-            <li class="fragment">It's satisfaying see all things green.</li>
+            <li class="fragment">Fast response on changing.</li>
           </ol>
         </section>
 
@@ -207,11 +211,14 @@ const component = mount(< Component />);
             </section>
           </section>
 
-          <section id="testable-code" data-transition="slide" data-background-transition="fade">
+          <section id="testable-code" data-background-transition="zoom" data-transition="slide">
             <section>
               <h3>Nice! We have those cool tools but...</h3>
               <div class="fragment">
                 <h5>why is it still so hard??</h5>
+              </div>
+              <div class="fragment">
+                <h5>Bad code design.</h5>
               </div>
             </section>
             <section>
@@ -220,8 +227,8 @@ const component = mount(< Component />);
                 <img src="./images/wordcloud_code.png" alt=""/>
               </div>
             </section>
-            <section>
-              <small style="transform: rotate(-15deg); color: red;">Javascript version</small>
+            <section data-background-transition="zoom" data-transition="slide">
+              <small style="transform: rotate(-15deg); color: red; position: absolute; left: 15px; top: 5px;">Javascript version</small>
               <h4>Good code design is simple they said.</h4>
               <div>
                 <img src="./images/wordcloud_javascript.png" alt=""/>
@@ -301,8 +308,8 @@ it("shouldn't be that complicated to test", function() {
               <h2>I am sold. But what now?</h2>
             </section>
             <section>
-              <h2>How do we do it?</h2>
-              <h2>What do we test?</h2>
+              <h2>How do I do it?</h2>
+              <h2>What do I test?</h2>
               <h2>Best practices?</h2>
             </section>
             <section>
@@ -328,6 +335,7 @@ it("shouldn't be that complicated to test", function() {
                   <img src="./images/posts_logic_testing.png" alt=""/>
                 </div>
                 <small>Given -> When -> Then Pattern</small>
+                <small class="reference">https://martinfowler.com/bliki/GivenWhenThen.html</small>
               </div>
             </section>
             <section>
@@ -397,7 +405,7 @@ it("shouldn't be that complicated to test", function() {
             <h2>Pros</h2>
             <ol>
               <li>Reduce 40%-80% of bugs.</li>
-              <li>Makes better objects/functions API.</li>
+              <li>Better objects/functions API.</li>
               <li>Leads to descritive tests.</li>
               <li>Fast feedback loop.</li>
             </ol>
