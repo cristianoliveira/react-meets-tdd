@@ -61,8 +61,12 @@ pre {
   z-index: 1;
 }
 
+#thinking {
+  font-size: 100px
+}
+
 #testing-inanutshell {
-  margin-top: 600px;
+  margin-top: 300px;
   width: 100%;
 }
 
@@ -105,8 +109,8 @@ pre {
   visibility: visible;
   position: relative;
   top: 99999px;
-  transform-origin: 50% 100%;
-  animation: crawl 210s linear;
+  transform-origin: 50% 50%;
+  animation: crawl 209s linear;
 }
 
 .crawl > .title {
