@@ -26,13 +26,14 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
     <div class="reveal">
       <div class="slides">
         <section id="welcome">
-          <h2>When React meets TDD</h2>
+          <h2>When React meets TDD 🤝</h2>
           <pre>
             <code class="javascript">import Sanity, { BetterCode } from 'ui-unit-tests';</code>
           </pre>
           <p>
             <small>By Cristian Oliveira</small><br />
             <small>🇧🇷🇩🇪</small><br />
+            <small>⚽</small><br />
             <small>Github: <a href="https://github.com/cristianoliveira">@cristianoliveira</a></small>
           </p>
         </section>
@@ -45,7 +46,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
             <li>UI Testing.</li>
             <li>TDD and React.</li>
             <li>Good practices.</li>
-            <li>Live code: Let's code something using TDD.</li>
+            <li>Some examples.</li>
           </ul>
         </section>
 
@@ -64,24 +65,32 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
                 <source src="./star_wars_theme.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
               </audio>
+
               <div class="title star-wars-font">
                 <p>Episode XX</p>
-                <h1>The old empire</h1>
+                <h1>The old culture</h1>
               </div>
 
-              <p>It was in a time before the Agile culture.</p>
-              <p>The product planning and deliverying were slow. Companies relied too much on manual testing for ensuring their product's quality.<br />
+              <p>It was in a time where big companies were ruling the whole culture.</p>
+              <p>The product planning and deliverying were very slow and burocratic. <br />
+                The QA process were strict and heavily manual work were required. Companies used to relied too much on manual testing for ensuring their product's quality.<br />
                 That culture led to different kind of problems.<br /><br />
               </p>
               <ol>
-                <li>Eternal fighting among Devs and QAs.</li>
-                <li>No confidence for changing before releases.</li>
+                <li>No confidence for changing code.</li>
                 <li>Fear of regression bugs in each change.</li>
                 <li>Legacy code that "just works".</li>
+                <li>Eternal fighting among Devs and QAs.</li>
                 <li>A lot of stress.</li>
               </ol>
               <p>People where not happy also a lot of money and time were wasted.... </p>
-              <img id="testing-inanutshell" width="500" src="./images/regression.gif" alt="" />
+            </div>
+          </section>
+
+          <section id="coding-was-like" data-background-transition="zoom" data-transition="slide" data-background="#b5533c">
+            <h2>Coding in a nutshell was like</h2>
+            <div>
+              <img src="./images/regression.gif" alt="" />
             </div>
           </section>
 
@@ -95,13 +104,6 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
           <p>Delivering fast and with quality.</p>
           <p>Ensure quality by automated tests.</p>
         </section>
-
-        <!-- <section id="coding-was-like" data-background-transition="zoom" data-transition="slide" data-background="#b5533c"> -->
-        <!--   <h2>Coding in a nutshell was like</h2> -->
-        <!--   <div> -->
-        <!--     <img src="./images/regression.gif" alt="" /> -->
-        <!--   </div> -->
-        <!-- </section> -->
 
         <section id="automated-testing">
           <h3>Automated testing</h3>
@@ -125,41 +127,6 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
           </section>
         </section>
 
-        <section id="question-unit-test">
-          <h3>But...Unit tests for UI?</h3>🤔
-          <div class="fragment">
-            <img src="./images/pros_cons_time.gif" alt="" />
-          </div>
-        </section>
-
-        <section id="unit-test-pros" data-background="#4d7e65">
-          <h2>Unit testing UI</h2>
-          <h4>Pros</h4>
-          <ol>
-            <li class="fragment">Great confidence for changing stuff (refactoring).</li>
-            <li class="fragment">No more regressions.</li>
-            <li class="fragment">Better component/code design.</li>
-            <li class="fragment">Live component/module documentation.</li>
-            <li class="fragment">It makes easier to review code changes.</li>
-            <li class="fragment">Fast response on changing.</li>
-          </ol>
-        </section>
-
-        <section id="unit-test-cons" data-background="#b5533c">
-          <h2>Unit testing UI</h2>
-          <h3>Cons</h3>
-          <div class="fragment">
-            <ol>
-              <li>We need to write and maintain them.</li>
-              <li class="hidden"></li>
-              <li class="hidden"></li>
-              <li class="hidden"></li>
-              <li class="hidden"></li>
-            </ol>
-            <h4>That's it.</h4>
-          </div>
-        </section>
-
         <section id="before-ui-testing">
           <h2>Some time ago</h2>
           <small>Writting tests for UI were kind of 💩</small>
@@ -169,6 +136,9 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
             </div>
             <div class="fragment">
               <img src="./images/phantomjs.png" alt="" />
+            </div>
+            <div class="fragment">
+              <img src="./images/protractor.png" alt="" />
             </div>
           </div>
           <div class="fragment">
@@ -210,6 +180,42 @@ const component = mount(< Component />);
               </p>
             </section>
           </section>
+
+        <section id="question-unit-test">
+          <h3>But...Unit tests for UI?</h3>🤔
+          <div class="fragment">
+            <img src="./images/pros_cons_time.gif" alt="" />
+          </div>
+        </section>
+
+        <section id="unit-test-pros" data-background="#4d7e65">
+          <h2>Unit testing UI</h2>
+          <h4>Pros</h4>
+          <ol>
+            <li class="fragment">Fast response on changing.</li>
+            <li class="fragment">Less regressions.</li>
+            <li class="fragment">Confidence for changing (refactoring).</li>
+            <li class="fragment">Better component/code design.</li>
+            <li class="fragment">Live component/module documentation.</li>
+            <li class="fragment">It makes easier to review code changes.</li>
+          </ol>
+        </section>
+
+        <section id="unit-test-cons" data-background="#b5533c">
+          <h2>Unit testing UI</h2>
+          <h3>Cons</h3>
+          <div class="fragment">
+            <ol>
+              <li>We need to write and maintain them.</li>
+              <li class="hidden"></li>
+              <li class="hidden"></li>
+              <li class="hidden"></li>
+              <li class="hidden"></li>
+            </ol>
+            <h4>That's it.</h4>
+          </div>
+        </section>
+
 
           <section id="testable-code" data-background-transition="zoom" data-transition="slide">
             <section>
@@ -290,6 +296,13 @@ it("shouldn't be that complicated to test", function() {
               </code>
             </pre>
             </section>
+            <section data-background="#cb2431">
+              <h4>Same principle for components</h4>
+              <blockquote>State is the root of all evil - A guy from the bible</blockquote>
+              <div>
+                <img src="./images/example_bad_component_code.png" alt=""/>
+              </div>
+            </section>
             <section data-background="#4A5FF3">
               <h4>
                 Test Driven Development <br />
@@ -301,6 +314,37 @@ it("shouldn't be that complicated to test", function() {
                 TDD is
               </h4>
             </section>
+          </section>
+
+          <section id="tdd-worthy">
+            <h2>TDD. Does it worthy?</h2>
+            <h2 class="fragment">What time is it?</h2>
+            <div class="fragment">
+              <img src="./images/pros_cons_time.gif" alt="" />
+            </div>
+          </section>
+
+          <section>
+            <h2>Pros</h2>
+            <ol>
+              <li>Reduce 40%-80% of bugs.</li>
+              <li>Better objects/functions API.</li>
+              <li>Leads to descritive tests.</li>
+              <li>Fast feedback loop.</li>
+            </ol>
+          </section>
+
+          <section>
+            <h2>Cons</h2>
+            <ol>
+              <li>It's hard at the beggining.</li>
+              <li>You need to know well what you'll implement.</li>
+              <li>It takes extra time.</li>
+            </ol>
+          </section>
+
+          <section>
+            <img width="500" src="./images/tdd-flow.png" alt=""/>
           </section>
 
           <section id="what-to-test">
@@ -393,33 +437,6 @@ it("shouldn't be that complicated to test", function() {
               </ul>
               </ol>
             </section>
-          </section>
-          <section id="tdd-worthy">
-            <h2>TDD. Does it worthy?</h2>
-            <h2 class="fragment">What time is it?</h2>
-            <div class="fragment">
-              <img src="./images/pros_cons_time.gif" alt="" />
-            </div>
-          </section>
-          <section>
-            <h2>Pros</h2>
-            <ol>
-              <li>Reduce 40%-80% of bugs.</li>
-              <li>Better objects/functions API.</li>
-              <li>Leads to descritive tests.</li>
-              <li>Fast feedback loop.</li>
-            </ol>
-          </section>
-          <section>
-            <h2>Cons</h2>
-            <ol>
-              <li>It's hard at the beggining.</li>
-              <li>You need to know well what you'll implement.</li>
-              <li>It takes extra time.</li>
-            </ol>
-          </section>
-          <section>
-            <img width="500" src="./images/tdd-flow.png" alt=""/>
           </section>
           <section id="demo">
             <h2>Let's try it?</h2>

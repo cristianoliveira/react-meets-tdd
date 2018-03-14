@@ -25,13 +25,15 @@ pre {
 }
 
 .web-ui-browsers > .fragment {
-  margin: 10px;
+  width: 780px;
+  margin: auto;
 }
 
 .web-ui-browsers img {
   float: left;
   width: 200px;
   height: 200px;
+  margin: 0 25px !important;
 }
 
 .flex {
@@ -62,7 +64,7 @@ pre {
 }
 
 #thinking {
-  font-size: 100px
+  font-size: 100px;
 }
 
 #testing-inanutshell {
@@ -70,7 +72,8 @@ pre {
   width: 100%;
 }
 
-.star-wars-font h1, h5 {
+.star-wars-font h1,
+h5 {
   font-family: 'Pathway Gothic One', sans-serif;
   font-weight: 200;
   font-family: 'ITC Serif Gothic', sans-serif;
@@ -80,11 +83,18 @@ pre {
 .star-wars {
   top: -20px !important;
   background: #000;
-  background-image:
-    radial-gradient(white, rgba(255,255,255,0.5) 1px, transparent 3px),
-    radial-gradient(white, rgba(255,255,255,.1) 1px, transparent 14px),
-    radial-gradient(white, rgba(255,255,255,.1) 1px, transparent 15px),
-    radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 7px);
+  background-image: radial-gradient(
+      white,
+      rgba(255, 255, 255, 0.5) 1px,
+      transparent 3px
+    ),
+    radial-gradient(white, rgba(255, 255, 255, 0.1) 1px, transparent 14px),
+    radial-gradient(white, rgba(255, 255, 255, 0.1) 1px, transparent 15px),
+    radial-gradient(
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.1) 2px,
+      transparent 7px
+    );
   background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
   background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
   display: flex;
@@ -119,17 +129,16 @@ pre {
 }
 
 .crawl > .title h1 {
-
   margin: 0 0 100px;
   text-transform: uppercase;
 }
 
 @keyframes crawl {
-    0% {
+  0% {
     top: 400px;
-    transform: rotateX(20deg)  translateZ(0);
+    transform: rotateX(20deg) translateZ(0);
   }
-    100% {
+  100% {
     top: -6000px;
     transform: rotateX(25deg) translateZ(-2500px);
   }
