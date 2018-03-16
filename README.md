@@ -1,6 +1,8 @@
-# jest-tdd-workshop
+# When React meets TDD 🤝
 
-When TDD meets React talk/workshop.
+https://cristianoliveira.github.io/ui-tdd-workshop/
+
+A talk about unit testing UI using Test Driven Development approach.
 
 ## Setup
 ```
